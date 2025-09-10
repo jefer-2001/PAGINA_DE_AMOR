@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lluvia de Corazones Románticos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            background: linear-gradient(135deg, #ffebee, #99d653); 
+            min-height: 100vh; 
+            overflow-x: hidden; 
+            font-family: 'Arial', sans-serif; 
+        }
+
+        /* Animación para caída de corazones */
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Corazón flotante */
+        .floating-heart {
+            position: absolute;
+            left: -50px; /* Fuera de pantalla inicialmente */
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Efecto de pulso en mensajes */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse-message { animation: pulse 2s ease-in-out infinite; }
+
+        /* Galería responsive */
+        .album { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .album img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transition: transform 0.3s; }
+        .album img:hover { transform: scale(1.05); }
+
+        /* Estilo para botones/submit (si se usa más adelante) */
+        button { background-color: #1ed1e9; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        button:hover { background-color: #1b1ed8; }
+    </style>
+</head>
+<body class="text-center p-4 relative">
+    <div id="hearts-container" class="absolute inset-0 pointer-events-none z-0"></div> <!-- Contenedor para corazones flotantes -->
+
+    <!-- Header con título y algunos corazones estáticos -->
+    <header class="relative py-8 z-10">
+        <h1 class="text-4xl font-bold text-red-600 mb-6 drop-shadow-lg">PARA YERAL LA MAS HERMOSA</h1>
+        <p class="text-lg text-pink-800 mb-4">ERES EL AMOR DE MI VIDA.</p>
+        <!-- Corazones estáticos decorativos -->
+        <div class="flex justify-center gap-4 mb-4">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1788b1ca-2017-4333-be37-ca44d763c6e4.png" alt="Red heart icon with subtle glow, designed in a smooth vector style, representing eternal love floating in a romantic pink background" class="w-10 h-10 animate-bounce" />
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d964e9b6-723a-4263-a107-193e6ceb3b5b.png" alt="Pulsing pink heart symbol, soft edges and light shimmer, symbolizing affectionate care in a dreamy atmosphere" class="w-10 h-10 animate-bounce" style="animation-delay: 0.5s;" />
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1801aa8b-f91c-4201-b662-9d17004f1037.png" alt="Playful purple heart outline, transparent fill with gentle rotation, evoking playful romance" class="w-10 h-10 animate-bounce" style="animation-delay: 1s;" />
+        </div>
+    </header>
+
+    <!-- Sección de Mensajes Románticos -->
+    <section class="max-w-lg mx-auto mb-8 relative z-10">
+        <h2 class="text-2xl font-semibold text-red-500 mb-4">Palabras de Amor</h2>
+        <div class="bg-white bg-opacity-85 p-4 rounded-lg shadow-lg mb-4 pulse-message">
+            <p class="text-base text-gray-800 font-medium">"Eres mi todo, mi razón de ser y mi mayor alegría."</p>
+        </div>
+        <div class="bg-white bg-opacity-85 p-4 rounded-lg shadow-lg mb-4 pulse-message" style="animation-delay: 0.5s;">
+            <p class="text-base text-gray-800 font-medium">"Cada latido de mi corazón es por ti, mi princesa."</p>
+        </div>
+        <div class="bg-white bg-opacity-85 p-4 rounded-lg shadow-lg">
+            <textarea id="custom-message" class="w-full p-3 border border-red-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-700" rows="4" placeholder="Hola yeral, quería decirte algo… Te extraño. La verdad es que me haces mucha falta, y me doy cuenta de lo importante que eres para mí. Cada momento contigo me deja un recuerdo lindo, y me encantaría volver a compartir más de esos instantes a tu lado."></textarea>
+        </div>
+    </section>
+
+    <!-- Álbum de Fotos de Recuerdos -->
+    <section class="max-w-5xl mx-auto relative z-10">
+        <h2 class="text-2xl font-semibold text-red-500 mb-6">NUESTRA HISTORIA</h2>
+        <div class="album">
+            <img src="C:\Users\Usuario\Downloads\codigo\nombre.html\fotos\Imagen de WhatsApp 2025-08-11 a las 22.23.27_0ae977f0.jpg" alt="Full view portrait of a radiant woman with long wavy hair, smiling warmly against a soft-focus background of blooming roses, capturing her joy and beauty in high detail with warm lighting" />
+            <img src="C:\Users\Usuario\Downloads\codigo\nombre.html\fotos\Imagen de WhatsApp 2025-08-11 a las 22.23.27_4f14d158.jpg" alt="Vibrant full-body image of a stunning lady in a flowing dress walking through a cherry blossom trail, with pink petals in air, portraying grace and serenity under natural daylight" />
+            <img src="C:\Users\Usuario\Downloads\codigo\nombre.html\fotos\Imagen de WhatsApp 2025-08-11 a las 22.23.27_9cc39878.jpg" alt="Candid close-up of an enchanting girl laughing on a beach at sunset, with golden sunlight reflecting on her skin, sand, and waves in the background, showing pure happiness" />
+            <img src="C:\Users\Usuario\Downloads\codigo\nombre.html\fotos\Imagen de WhatsApp 2025-08-11 a las 22.23.27_2159ac54.jpg" alt="Romantic shot of a beautiful woman in a cozy indoor setting reading a book, surrounded by soft lamp light, delicate features highlighted with gentle shadows" />
+            <img src="C:\Users\Usuario\Downloads\codigo\nombre.html\fotos\Imagen de WhatsApp 2025-08-11 a las 22.23.27_a1b0611a.jpg" alt="Dynamic action photo of a lively female dancing under starry night sky, dress twirling, capturing emotion and freedom in a field with subtle city lights in distance" />
+            <img src="C:\Users\Usuario\Downloads\codigo\nombre.html\fotos\Imagen de WhatsApp 2025-09-10 a las 00.25.17_d7400add.jpg" alt="Tender image of a charming young woman holding a bouquet of wildflowers in a meadow, with green grass and blue sky, emphasizing her soft smile and natural charm" />
+        </div>
+    
+
+    <!-- Footer -->
+    <footer class="mt-10 mb-4 text-red-600 font-semibold relative z-10">
+        <p>Con infinito amor, JEFERSON ♥</p>
+    </footer>
+
+    <script>
+        // Función para crear corazones flotantes
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            // Crear img para corazón
+            const img = document.createElement('img');
+            img.src = 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ea28a11d-8488-45a9-93e0-1dcfe5315670.png'; // Placeholder para corazón
+            img.alt = 'Small red heart shape floating downwards with slow rotation and fade, designed in a cute cartoon style for romantic sprinkling effect';
+            img.style.width = '30px';
+            img.style.height = '30px';
+            img.style.animation = 'fall ' + (3 + Math.random() * 3) + 's linear';
+            heart.appendChild(img);
+            document.getElementById('hearts-container').appendChild(heart);
+            // Remover después de animación para no sobrecargar DOM
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        // Generar corazones cada cierto tiempo
+        setInterval(createHeart, 500); // Un corazón cada 0.5 segundos
+
+        // Opcional: Alertar si se modifica el mensaje (simple interactive)
+        document.getElementById('custom-message').addEventListener('input', function(e) {
+            if (e.target.value.trim()) {
+                e.target.style.borderColor = '#e91e63';
+            } else {
+                e.target.style.borderColor = '#fed7d7';
+            }
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
